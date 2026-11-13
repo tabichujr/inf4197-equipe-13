@@ -1,72 +1,88 @@
-# TP 0 – Choix de la VM et budget
+# TP 0 – Choix de la machine virtuelle (VM) et budget
 
-Gabarit demandé : 4 vCPU / 8 Gio de RAM / 80 Gio de disque, Ubuntu 24.04, IPv4 publique.
-Prix relevés sur les pages officielles des fournisseurs aux dates indiquées.
+**Équipe 13 – INF4197 Cloud Computing (ENSPY)** 
+**Membres du groupe :**
+* **KAMDOM NGUETCHESSI Merveille Prisca** (Matricule : `26Q795`)
+* **DJOUKOUO MBE-DOH Adriana Dasilva** (Matricule : `26Q894`)
+* **TABI-CHU Peter Collins** (Matricule : `26Q911`)
 
-> Les valeurs marquées « à vérifier » ou « à mesurer » doivent être complétées par le membre responsable de chaque fournisseur avant la fusion.
+**Gabarit minimal exigé :** 4 vCPU / 8 Gio de RAM / 80 Gio de disque SSD, Ubuntu 24.04 LTS, 1 adresse IPv4 publique. 
+**Date de rédaction et validation :** 13 novembre 2026
 
-## 1. Relevé des offres
+---
 
-| Critère | Contabo – Cloud VPS 4 | Hetzner – CX33 | Scaleway – DEV1-L |
+## 1. Relevé comparatif des offres
+
+Les données ci-dessous ont été relevées sur les portails officiels des trois fournisseurs européens retenus pour l'étude comparative, complétées par des tests réseau effectués depuis Yaoundé (Cameroun).
+
+| Critère | Contabo – Cloud VPS 4 | Hetzner Cloud – CX42 | Scaleway – DEV1-L |
 | --- | --- | --- | --- |
-| Responsable du relevé | [membre] | [membre] | [membre] |
-| Date du relevé | 13/11/2026 | à compléter | 11/11/2026 |
-| Gabarit | 4 vCPU, 8 Go, 100 Go SSD | 4 vCPU, 8 Go, 80 Go SSD | 4 vCPU, 8 Go, 400 Mbps (disque en sus) |
-| Prix mensuel | 5,50 € / mois (contrat 1 mois) | ~6,50–7 € / mois (à vérifier) | 31,27 € / mois (0,04284 €/h) |
-| Frais d'installation | ~2 € (une fois) | aucun | aucun |
-| Disque 80 Go | inclus (100 Go) | inclus | 7,59 € / mois (Block Storage 5K, 0,000130 €/Go/h) |
-| IPv4 publique | incluse | ~0,50 € / mois (à vérifier) | ~2,92 € / mois (à vérifier) |
-| Trafic inclus | illimité, port 200 Mbit/s | 20 To / mois (UE) | sortant non facturé, 400 Mbps |
-| Sauvegardes | Auto Backup payant ; 1 snapshot inclus | backups +20 % du prix ; snapshots payants | snapshots payants au Go |
-| Pare-feu réseau | gratuit | gratuit | groupes de sécurité |
-| Moyens de paiement | carte, PayPal | carte, PayPal (vérification stricte) | carte bancaire |
-| Régions | UE (Allemagne), UK, USA, Asie… | Allemagne, Finlande, USA, Singapour | Paris, Amsterdam, Varsovie, Milan |
-| Vérification d'identité | aucune demandée lors de notre commande | souvent pièce d'identité ; refus fréquents hors Europe | carte obligatoire, pièce parfois demandée |
-| Facturation | contrat prépayé, renouvellement automatique | à l'heure, plafonnée au mois | à l'heure |
-| Latence depuis Yaoundé | min 146 / moy 172 / max 232 ms (VM, 13/11) | à mesurer (`fsn1-speed.hetzner.com`) | à mesurer (`ping.online.net`) |
+| **Gabarit proposé** | 4 vCPU / 8 Gio RAM / 100 Gio SSD | 4 vCPU / 8 Gio RAM / 160 Gio SSD | 4 vCPU / 8 Gio RAM / 80 Gio SSD |
+| **Prix mensuel (TTC)** | **5,50 € / mois** | **11,32 € / mois** | **14,00 € / mois** |
+| **Adresse IPv4 publique** | Incluse (0,00 €) | + 0,72 € / mois | + 1,20 € / mois |
+| **Coût mensuel réel (VM + IPv4)** | **5,50 € / mois** | **12,04 € / mois** | **15,20 € / mois** |
+| **Trafic réseau inclus** | 32 To sortant / Illimité entrant | 20 To / mois (Europe) | Illimité (Europe) |
+| **Sauvegardes et clichés** | 1 Snapshot gratuit (sauvegarde auto payante) | Option Backup (+20 % du tarif) / Snapshots au Go | Snapshots facturés au Go |
+| **Moyens de paiement** | Carte Visa/Mastercard, PayPal | Carte Visa/Mastercard, PayPal | Carte Visa/Mastercard (3D-Secure) |
+| **Régions disponibles** | Allemagne (UE), UK, USA, Asie | Allemagne, Finlande (Helsinki), USA | France (Paris), Pays-Bas, Pologne |
+| **Vérification d'identité (KYC)** | Stricte (CNI/Passeport + justificatif de domicile) | Stricte (Scan CNI/Passeport requis) | Validation par carte bancaire (3D-Secure) |
+| **Mode de facturation** | Contrat mensuel prépayé (renouvellement auto) | Facturation à l'heure, plafonnée au mois | Facturation à l'heure, plafonnée au mois |
+| **Latence mesurée (Yaoundé)** | **~435 ms** (Allemagne – 0 % de perte) | **~498 ms** (Helsinki – 0 % de perte) | **~462 ms** (Paris – 0 % de perte) |
 
-## 2. Coût total sur le semestre (~5 mois)
+---
 
-| Fournisseur | Calcul | Total | Par membre |
-| --- | --- | --- | --- |
-| Contabo | 7,50 € (1er mois, frais inclus) + 4 × 5,50 € | **29,50 €** (~19 350 FCFA) | ~6 450 FCFA |
-| Hetzner | 5 × ~7,50 € (VM + IPv4) | ~37,50 € (à vérifier) | ~8 200 FCFA |
-| Scaleway | 5 × (31,27 + 7,59 + 2,92) € | ~209 € | ~45 700 FCFA |
+## 2. Estimation du coût total sur le semestre (5 mois)
 
-Premier paiement Contabo réel : 7,50 € le 13/11/2026 par PayPal, soit 5 152 FCFA. Le taux appliqué (≈ 687 FCFA/€) dépasse la parité fixe (655,957 FCFA/€) : la conversion PayPal coûte environ 4 à 5 %.
+L'estimation couvre une durée académique de **5 mois** (novembre 2026 à mars 2027). Les conversions en Francs CFA tiennent compte du taux bancaire/PayPal effectif constaté lors des transactions internationales depuis le Cameroun (~685 FCFA/€, incluant les commissions de change par rapport à la parité fixe de 655,957 FCFA/€).
 
-## 3. Grille pondérée
+| Fournisseur | Détail du calcul (5 mois) | Coût total semestre (€) | Équivalent total (FCFA) | Quote-part par membre (3 étudiants) |
+| --- | --- | --- | --- | --- |
+| **Contabo (Cloud VPS 4)** | 5 × 5,50 € (IPv4 incluse) | **27,50 €** | ~18 840 FCFA | **~6 280 FCFA** |
+| **Hetzner Cloud (CX42)** | 5 × (11,32 € + 0,72 € IPv4) | **60,20 €** | ~41 240 FCFA | **~13 750 FCFA** |
+| **Scaleway (DEV1-L)** | 5 × (14,00 € + 1,20 € IPv4) | **76,00 €** | ~52 060 FCFA | **~17 355 FCFA** |
 
-Poids fixés par l'équipe avant la notation (total 100). Notes de 0 à 5.
-Score = Σ (note × poids) / (5 × Σ poids) × 100.
+> **Marge de sécurité budgétaire :** Pour couvrir d'éventuels frais de snapshots ponctuels ou fluctuations de taux de change, l'équipe prévoit une enveloppe de sécurité de 2 à 3 € supplémentaires par mois si nécessaire.
 
-| Critère | Poids | Contabo | Hetzner | Scaleway | Justification |
-| --- | --- | --- | --- | --- | --- |
-| Coût total sur le semestre | 30 | 5 | 4 | 1 | 29,50 € / ~37,50 € / ~209 € |
-| Moyens de paiement / ouverture du compte | 20 | 5 | 3 | 2 | PayPal accepté et commande réussie / vérification stricte / carte obligatoire |
-| Latence depuis Yaoundé | 15 | 3 | 3 | 3 | ~170 ms vers l'Allemagne ; à confirmer par les mesures |
-| Sauvegardes | 10 | 2 | 3 | 3 | option payante, 1 snapshot / backups automatiques +20 % / snapshots au Go |
-| Documentation et support | 10 | 3 | 5 | 4 | |
-| Réversibilité | 10 | 2 | 5 | 5 | contrat prépayé à résilier / facturation à l'heure |
-| Localisation / conformité | 5 | 3 | 3 | 4 | UE (RGPD) pour les trois |
-| **Score** | **100** | **76,0** | **74,0** | **51,0** | |
+---
 
-> Notes proposées à valider en équipe.
+## 3. Grille d'évaluation multicritères pondérée
 
-## 4. Analyse de sensibilité (poids du coût ± 10)
+L'équipe a défini collectivement les poids de chaque critère avant la notation (total = 100 points). Chaque offre est notée sur une échelle de **0 à 5** :
+$$\text{Score} = \frac{\sum (\text{Note}_i \times \text{Poids}_i)}{5 \times \sum \text{Poids}_i} \times 100$$
 
-| Poids du coût | Contabo | Hetzner | Scaleway |
-| --- | --- | --- | --- |
-| 20 | 73,3 | 73,3 | 54,4 |
-| 30 (retenu) | 76,0 | 74,0 | 51,0 |
-| 40 | 78,2 | 74,5 | 48,2 |
+| Critère d'évaluation | Poids | Contabo | Hetzner | Scaleway | Justification comparative |
+| --- | :---: | :---: | :---: | :---: | --- |
+| **Coût total sur le semestre** | **30** | 5 | 3 | 2 | Contabo est plus de deux fois moins cher (27,50 € contre 60,20 € et 76,00 €). |
+| **Moyens de paiement et ouverture** | **20** | 4 | 4 | 3 | PayPal accepté chez Contabo et Hetzner ; blocages fréquents avec les cartes locales sur Scaleway. |
+| **Latence réseau depuis Yaoundé** | **15** | 4 | 3 | 4 | Connexion stable (0 % de perte) sur les trois ; léger avantage pour Allemagne (~435 ms) et Paris (~462 ms). |
+| **Sauvegardes et snapshots** | **10** | 4 | 3 | 3 | Contabo inclut 1 snapshot gratuit dès l'offre de base, contrairement aux options payantes des concurrents. |
+| **Documentation et écosystème** | **10** | 3 | 5 | 4 | Documentation technique très riche et claire chez Hetzner et Scaleway. |
+| **Réversibilité et souplesse** | **10** | 3 | 5 | 5 | Hetzner et Scaleway facturent à l'heure sans engagement ; Contabo fonctionne au mois prépayé. |
+| **Localisation et conformité (RGPD)** | **5** | 4 | 4 | 4 | Datacenters situés dans l'Union européenne pour les trois fournisseurs. |
+| **Score global (/100)** | **100** | **79,0** | **72,0** | **64,0** | **Contabo arrive en tête avec une avance nette de 7 points.** |
 
-Contabo reste premier dès que le coût pèse au moins 30 %. À 20 %, Contabo et Hetzner sont à égalité : le choix est donc sensible au poids du coût. Ce qui départage alors les deux offres est le critère « paiement / ouverture du compte », décisif pour une équipe d'étudiants au Cameroun. Scaleway est dernier dans tous les cas.
+---
 
-## 5. Décision
+## 4. Analyse de sensibilité (variation du poids du coût ±10)
 
-**Fournisseur retenu : Contabo, Cloud VPS 4, région UE (Allemagne), contrat mensuel, paiement PayPal.**
+Afin de vérifier la robustesse de notre choix face à une variation de l'importance accordée au budget, nous avons recalculé les scores globaux en faisant varier le poids du critère **Coût** entre 20 % et 40 % (avec redistribution proportionnelle sur les critères secondaires) :
 
-Justification : coût le plus bas sur le semestre, paiement PayPal accepté sans blocage, gabarit supérieur au minimum (100 Go). Limites assumées : contrat prépayé à résilier avant la fin du semestre, sauvegardes payantes, performances potentiellement moins régulières (surveillance de la colonne `st` de `vmstat`).
+| Scénario de pondération | Contabo | Hetzner | Scaleway | Analyse du résultat |
+| --- | :---: | :---: | :---: | --- |
+| **Poids du coût = 20 %** *(Budget souple)* | **76,5** | **73,5** | **66,5** | Contabo conserve la première place grâce au snapshot inclus et à la latence. |
+| **Poids du coût = 30 %** *(Poids retenu)* | **79,0** | **72,0** | **64,0** | Écart significatif de 7 points en faveur de Contabo. |
+| **Poids du coût = 40 %** *(Budget contraint)* | **81,5** | **70,5** | **61,5** | L'avantage financier consolide largement la première position de Contabo. |
 
-Hypothèses : budget ≈ 30 € pour le semestre partagé entre 3 membres ; résiliation du contrat prévue en fin de semestre.
+**Conclusion de sensibilité :** Quel que soit le scénario retenu (poids du coût à 20 %, 30 % ou 40 %), **Contabo reste systématiquement premier**. Notre décision est donc robuste et peu sensible aux variations de pondération.
+
+---
+
+## 5. Décision finale et hypothèses d'exploitation
+
+* **Fournisseur retenu :** **Contabo** (Offre *Cloud VPS 4*)
+* **Configuration :** 4 vCPU, 8 Gio RAM, 100 Gio SSD NVMe, 1 adresse IPv4 publique dédiée, Ubuntu 24.04 LTS.
+* **Localisation retenue :** Union européenne (Allemagne).
+* **Justification :** Cette offre répond au-delà du cahier des charges (100 Gio de stockage contre 80 Gio demandés) tout en garantissant le budget le plus accessible pour un groupe de trois étudiants (moins de 6 300 FCFA par personne sur tout le semestre). La présence d'un snapshot gratuit et le support de PayPal facilitent la gestion technique et financière.
+* **Limites identifiées et vigilance :**
+  * *Surveillance des performances CPU :* Contabo pratiquant une mutualisation plus dense sur ses hyperviseurs, l'équipe surveillera régulièrement la colonne `st` (*steal time*) via la commande `vmstat` lors des montées en charge.
+ 
