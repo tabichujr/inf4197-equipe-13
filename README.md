@@ -8,7 +8,7 @@ Dépôt officiel de l'Équipe 13 pour les travaux pratiques du cours **INF4197 �
 
 | Membre | Matricule | Identifiant sur la VM | 
 | :--- | :---: | :---: |
-| **TABI-CHU Peter Collins** *(Initiateur)* | `26Q911` | `collins` | 
+| **TABI-CHU Peter Collins** | `26Q911` | `collins` | 
 | **KAMDOM NGUETCHESSI Merveille Prisca** | `26Q795` | `prisca` | 
 | **DJOUKOUO MBE-DOH Adriana Dasilva** | `26Q894` | `adriana` | 
 ---
