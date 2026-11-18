@@ -63,3 +63,7 @@
 | **Absence de réponse au `ping` vers la VM** | Le pare-feu réseau bloquait les requêtes ICMP par défaut et n'avait pas encore été rattaché à l'instance nouvellement créée. | Association explicite du profil de pare-feu à la VM dans le panneau Contabo et ajout d'une règle entrante autorisant le trafic **ICMP / Ping**. |
 | **Confusion et échecs lors du clonage GitHub sur la VM** | Confusion initiale entre les clés SSH de connexion à la VM (générées sur les PC locaux) et les clés SSH d'authentification vers GitHub (à générer depuis chaque compte personnel sur la VM), entraînant des refus de permission lors du clonage et des `push`. | Génération d'une clé SSH dédiée (`ssh-keygen -t ed25519`) sous chaque session utilisateur de la VM (`prisca`, `collins`, `adriana`), ajout de la clé publique dans *GitHub > Settings > SSH keys*, test via `ssh -T git@github.com`, puis clonage du dépôt dans le répertoire personnel (`~/inf4197-equipe-13`). |
 | **Déconnexions SSH brutales (`Broken pipe`) en cours d'édition** | Micro-coupures de la connexion Internet locale interrompant le tunnel SSH entre le poste client et le serveur distant. 
+   
+## TP 1
+* **14 novembre 2026 (Prisca)** : Durcissement SSH, activation du pare-feu UFW (port 22 uniquement) et configuration de fail2ban.
+* **18 novembre 2026 (Adriana)** : Création du dossier app, du Dockerfile, construction de l'image, test du Healthcheck et accès via tunnel SSH.
